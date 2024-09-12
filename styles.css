@@ -1,0 +1,50 @@
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 7px;
+  padding: 10px;
+}
+
+.img-container img {
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+/* The .modal element is fixed at the top-left corner of the viewport.
+   It covers the entire viewport by setting width and height to 100%.
+   This ensures it stays in place even when scrolling and fully covers the screen.
+ */
+.modal {
+  background-color: rgba(136, 76, 0, 0.384);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-in-out;
+}
+
+.full-img {
+  position: absolute;
+  height: 85%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: all 0.3 ease-in-out;
+}
+
+/* dynamic classes */
+/* will only applie if added directly to html or 
+dynamically through javascript */
+.full-img.open {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
